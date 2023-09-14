@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const AllSongs = require('../models/allSongs');
 const Users = require('../models/users');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const crypto = require('crypto');
 const serverless = require('serverless-http');
@@ -132,6 +132,6 @@ router.post('/users/reset', async (req, res) => {
 //   console.log(`Server is running on http://localhost:${port}`);
 // });
 
-app.use('/.netlify/functions/server',router);
+app.use('/.netlify/functions/api',router);
 
 module.exports.handler = serverless(app);
